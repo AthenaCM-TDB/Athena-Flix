@@ -2303,7 +2303,7 @@ const IMAGE_OVERRIDES = {
    profile / quote: "link" hoặc [{label, url}, ...] nếu có nhiều link
    chatbot: link Chatbot Copilot riêng của sản phẩm ("" = chưa có, nút sẽ xám)
    casestudy: link file casestudy ("" = chưa có, nút sẽ xám)
-   Thiếu profile / quote -> nút tự mở Telegram TĐB để xin tài liệu.
+   Thiếu profile / quote -> nút tự mở Telegram Thúc đẩy bán để lấy tài liệu.
 ========================================================= */
 const PRODUCT_LINKS = {
   'Product Campaign': { profile:'https://docs.google.com/presentation/d/1_lLX6tEqKi52UBBqG7c0BdZ7vDO-hm8RW9KP-3yAzPc/edit?slide=id.g385c9a1e8c3_4_3#slide=id.g385c9a1e8c3_4_3', quote:'', chatbot:'https://triact.aiservice.vn/invite/uZV_tcItNxWQKjWB7GkANl6kVytNUA0buEmLPwV_htw', casestudy:'' },
@@ -2378,7 +2378,7 @@ function actionsHTML(p, withClose){
     if(list.length === 1){
       return `<button class="cta alt" onclick="openDoc(${i},'${kind}',0)">${label}</button>`;
     }
-    return `<button class="cta alt" title="Chưa có file — bấm để lấy thông tin từ team Thúc đẩy bán" onclick="requestDoc(${i},'${kind}')">${label}</button>`;
+    return `<button class="cta alt" title="Chưa có file — bấm để nhắn team Thúc đẩy bán" onclick="requestDoc(${i},'${kind}')">${label}</button>`;
   };
 
   const extraBtn = (kind, label, emptyHint) => L[kind]
@@ -2721,7 +2721,7 @@ const products = [
     "why": "Bảo chứng bởi trang báo/tin uy tín; phân phối tần suất cao trên đa nền tảng; rút ngắn thời gian lan tỏa; truyền tải đồng bộ theo brand guideline.",
     "customer": "Khách hàng Mass, đa dạng ngành: Xây dựng & BĐS, Tài chính & Bảo hiểm, Bán buôn bán lẻ, Viễn thông & Truyền thông, F&B, Điện tử & Điện lạnh...",
     "pitch": "“Nếu khách cần một thông điệp được phủ nhanh, nhiều và vẫn kiểm soát được brand safety, PR Star giải bài toán khuếch đại thay vì booking từng điểm rời rạc.”",
-    "package": "Khuếch đại nội dung trên đa kênh/đa nền tảng. Tài liệu gồm Profile PR Star 2026 và báo giá theo từng publisher.",
+    "package": "Khuếch đại nội dung trên đa kênh/đa nền tảng; ưu tiên KHTT và A02. Tài liệu gồm Profile PR Star 2026 và báo giá theo từng publisher.",
     "budget": "không nêu ngân sách tổng; giá bán theo profile/báo giá từng publisher.",
     "proof": "chưa có case study."
 },
@@ -2831,6 +2831,7 @@ const products = [
     ================================
   */
   const featuredNames = [
+    "Product Campaign",
     "Luvix - GEO solution",
     "ID14 - Tuyến nội dung Premium",
     "Showlife - Here To Hear và các show mới",
@@ -2844,6 +2845,7 @@ const products = [
 
   const featuredBadges = [
     "🔥 SẢN PHẨM TRỌNG ĐIỂM",
+    "🔥 SẢN PHẨM TRỌNG ĐIỂM",
     "✨ SẢN PHẨM TIỀM NĂNG",
     "✨ SẢN PHẨM TIỀM NĂNG",
     "✨ SẢN PHẨM TIỀM NĂNG",
@@ -2855,6 +2857,7 @@ const products = [
   ];
 
   const featuredLabels = [
+    "PRODUCT MARKETING",
     "GEO / AI SEARCH",
     "NỘI DUNG PREMIUM",
     "SHOW & MINISHOW",
@@ -2866,7 +2869,7 @@ const products = [
     "GIẢI PHÁP KHUẾCH ĐẠI"
   ];
 
-  const featuredIcons = ["🤖","✨","🎙️","📈","⭐","🇻🇳","🧵","🎉","📣"];
+  const featuredIcons = ["🎯","🤖","✨","🎙️","📈","⭐","🇻🇳","🧵","🎉","📣"];
 
   const featuredProducts = featuredNames
     .map(name => products.find(p => p.name === name))
@@ -3906,7 +3909,7 @@ function toggleAcc(btn){
           <div class="card-name">${esc(p.name)}</div>
           <div class="card-hook">${esc(p.hook)}</div>
           ${salesMetaHTML(p)}
-          <div class="card-foot"><span class="card-price">${esc(p.price)}</span><span class="more">Xem kèo →</span></div>
+          <div class="card-foot"><span class="card-price">${esc(p.price)}</span><span class="more">Xem sản phẩm →</span></div>
         </div>
       </article>`;
     }).join("");
