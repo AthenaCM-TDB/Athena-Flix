@@ -2378,7 +2378,7 @@ function actionsHTML(p, withClose){
     if(list.length === 1){
       return `<button class="cta alt" onclick="openDoc(${i},'${kind}',0)">${label}</button>`;
     }
-    return `<button class="cta alt" title="Chưa có file — bấm để xin team TĐB" onclick="requestDoc(${i},'${kind}')">${label}</button>`;
+    return `<button class="cta alt" title="Chưa có file — bấm để lấy thông tin từ team Thúc đẩy bán" onclick="requestDoc(${i},'${kind}')">${label}</button>`;
   };
 
   const extraBtn = (kind, label, emptyHint) => L[kind]
@@ -2721,7 +2721,7 @@ const products = [
     "why": "Bảo chứng bởi trang báo/tin uy tín; phân phối tần suất cao trên đa nền tảng; rút ngắn thời gian lan tỏa; truyền tải đồng bộ theo brand guideline.",
     "customer": "Khách hàng Mass, đa dạng ngành: Xây dựng & BĐS, Tài chính & Bảo hiểm, Bán buôn bán lẻ, Viễn thông & Truyền thông, F&B, Điện tử & Điện lạnh...",
     "pitch": "“Nếu khách cần một thông điệp được phủ nhanh, nhiều và vẫn kiểm soát được brand safety, PR Star giải bài toán khuếch đại thay vì booking từng điểm rời rạc.”",
-    "package": "Khuếch đại nội dung trên đa kênh/đa nền tảng; ưu tiên KHTT và A02. Tài liệu gồm Profile PR Star 2026 và báo giá theo từng publisher.",
+    "package": "Khuếch đại nội dung trên đa kênh/đa nền tảng. Tài liệu gồm Profile PR Star 2026 và báo giá theo từng publisher.",
     "budget": "không nêu ngân sách tổng; giá bán theo profile/báo giá từng publisher.",
     "proof": "chưa có case study."
 },
@@ -3854,8 +3854,8 @@ function toggleAcc(btn){
     const core = [p.hook,p.customer,p.pitch,p.package,p.budget,p.proof];
     const missing = core.filter(fieldMissing).length;
     if(missing === 0) return {key:"ready",label:"🟢 READY TO SELL",next:"Có đủ bộ thông tin cơ bản để mang chào bán."};
-    if(missing <= 2) return {key:"support",label:"🟡 CẦN TĐB HỖ TRỢ",next:"Có thể đẩy bán tới nhãn, nhưng cần kéo Thúc đẩy bán vào để hoàn thiện đề xuất."};
-    return {key:"incomplete",label:"⚪ ĐANG HOÀN THIỆN",next:"Sales nên kiểm tra với TĐB trước khi pitch."};
+    if(missing <= 2) return {key:"support",label:"🟡 CẦN Thúc đẩy bán HỖ TRỢ",next:"Có thể đẩy bán tới nhãn, nhưng cần kéo Thúc đẩy bán vào để hoàn thiện đề xuất."};
+    return {key:"incomplete",label:"⚪ ĐANG HOÀN THIỆN",next:"Sales nên kiểm tra với Thúc đẩy bán trước khi pitch."};
   }
 
   function priceStatus(p){
