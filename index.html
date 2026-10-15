@@ -1796,6 +1796,45 @@ footer{
 .acc-card.open .acc-more{ margin-top:12px; }
 
 section[id]{ scroll-margin-top:84px; }
+
+/* STICKY CTA — luôn hiện khi scroll */
+.sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:90;
+  border-radius:0; border-width:1px 0 0 0;
+  padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));
+  text-align:left;
+  background:radial-gradient(circle at 85% 20%,rgba(243,184,63,.16),transparent 35%),rgba(20,19,15,.94);
+  backdrop-filter:blur(10px);
+  box-shadow:0 -10px 30px rgba(0,0,0,.45);
+}
+.sticky-cta-inner{
+  max-width:var(--max); margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.sticky-cta .sticky-cta-copy{min-width:0}
+.sticky-cta h2{font-size:clamp(18px,2.4vw,26px); letter-spacing:-.03em; line-height:1.1}
+.sticky-cta p{margin:5px 0 0; max-width:none; font-size:13px; line-height:1.4}
+.sticky-cta .cta{flex:none; white-space:nowrap}
+body{padding-bottom:110px}
+.toast{bottom:120px}
+@media(max-width:700px){
+  .sticky-cta{padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+  .sticky-cta p{display:none}
+  .sticky-cta-inner{gap:12px}
+  .sticky-cta h2{font-size:15px}
+  body{padding-bottom:84px}
+  .toast{bottom:96px}
+}
+
+/* FOOTER CONTACT */
+.footer-contact{min-width:260px}
+.footer-contact h3{margin:0 0 10px; font-size:13px; color:var(--text); letter-spacing:.02em; text-transform:uppercase}
+.footer-contact ul{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.footer-contact li{font-size:13px; color:#bcb8be}
+.footer-contact li span{display:inline-block; min-width:92px; color:#77747a}
+.footer-contact a{color:var(--gold); text-decoration:none; font-weight:700}
+.footer-contact a:hover{text-decoration:underline}
+@media(max-width:700px){.footer-contact{min-width:0}}
 </style>
 </head>
 
@@ -2103,50 +2142,18 @@ section[id]{ scroll-margin-top:84px; }
 </section>
 
 <!-- =========================
-     SUPPORT CTA
+     SUPPORT CTA (STICKY)
 ========================= -->
 
-<section
-  class="section"
-  id="support"
->
-
-  <div class="container">
-
-    <div class="bottom-cta">
-
-
-      <h2>
-        THẤY SẢN PHẨM NÀY CÓ CỬA?
-      </h2>
-
-
-      <p>
-
-        Gửi thông tin khách tại đây.
-
-        Team Sản phẩm & THÚC ĐẨY BÁN sẽ cùng bạn:
-
-        từ lên ý tưởng, dựng đề xuất
-        đến hỗ trợ đi pitch.
-
-      </p>
-
-
-      <button
-        class="cta"
-        onclick="contactTDB()"
-      >
-        💬 LÊN ĐỒ ĐI PITCH
-      </button>
-
-
+<div class="bottom-cta sticky-cta" id="support">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-copy">
+      <h2>THẤY SẢN PHẨM NÀY CÓ CỬA?</h2>
+      <p>Gửi thông tin khách tại đây. Team Sản phẩm &amp; THÚC ĐẨY BÁN sẽ cùng bạn: từ lên ý tưởng, dựng đề xuất đến hỗ trợ đi pitch.</p>
     </div>
-
+    <button class="cta" onclick="contactTDB()">💬 LÊN ĐỒ ĐI PITCH</button>
   </div>
-
-</section>
-
+</div>
 
 </main>
 
@@ -2173,7 +2180,13 @@ section[id]{ scroll-margin-top:84px; }
     </div>
 
 
-    <div>
+    <div class="footer-contact" id="contact">
+      <h3>Liên hệ team Thúc đẩy bán</h3>
+      <ul>
+        <li><span>Email</span><a href="mailto:thucdayban@athenacm.vn">thucdayban@athenacm.vn</a></li>
+        <li><span>SĐT</span><a href="tel:0942099966">0942 099 966</a></li>
+        <li><span>Lotus chat / Telegram</span><a href="https://t.me/mem464" target="_blank" rel="noopener">Mem464</a></li>
+      </ul>
     </div>
 
   </div>
